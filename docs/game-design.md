@@ -4,17 +4,17 @@ Design del prototipo iniziale. Le regole confermate sono distinte dai valori pro
 
 ## Concept
 
-Un pinball tower defense endless a ondate, ambientato dentro un computer. Il giocatore controlla due flipper e costruisce un sistema di torri che danneggia le palline o aiuta a mantenerle in gioco.
+Un pinball tower defense endless a ondate, con un tavolo astratto senza ambientazione specifica. Il giocatore controlla due flipper e costruisce un sistema di torri che danneggia le palline o aiuta a mantenerle in gioco.
 
 Le palline hanno punti vita: bisogna distruggerle tutte prima che una raggiunga lo scarico centrale. Una sola pallina persa termina immediatamente la partita.
 
-Il tavolo richiama una scheda madre, con circuiti, piste e componenti elettronici. Le palline restano esteticamente palline: non rappresentano virus o altri nemici figurativi.
+Il tavolo usa superfici semplici e forme geometriche, con colori ed effetti che rendono leggibili gli elementi di gioco. Le palline restano esteticamente palline, senza rappresentare nemici figurativi.
 
 Il gioco sarà in 3D, con visuale fissa frontale rialzata e inclinata, simile a 3D Pinball Space Cadet: flipper in primo piano e parte alta del tavolo in profondità.
 
-![Concept del layout 3D](images/layout-3d-v1.png)
+![Concept del layout 3D](images/layout-3d-abstract-v2.png)
 
-Concept visivo iniziale, non una schermata del prototipo implementato. Generato con il tool integrato imagegen. Prompt: tavolo 3D a tema scheda madre, visuale come Space Cadet, layout asimmetrico con tre bumper, tre slot esterni alle traiettorie, Laser in alto a sinistra, Repulsore in basso a sinistra, slot libero a destra, due canalette bonus, due flipper e unico scarico centrale. La geometria e il livello di dettaglio saranno adattati nel prototipo.
+Concept visivo iniziale, non una schermata del prototipo implementato. Generato con il tool integrato imagegen. Prompt: tavolo 3D astratto con superficie neutra e forme geometriche semplici, visuale come Space Cadet, layout asimmetrico con tre bumper, tre slot esterni alle traiettorie, Laser in alto a sinistra, Repulsore in basso a sinistra, slot libero a destra, due canalette bonus, due flipper e unico scarico centrale. La geometria e il livello di dettaglio saranno adattati nel prototipo.
 
 ## Regole confermate
 
@@ -138,7 +138,7 @@ Il bumper speciale e i power-up sono esclusi dal prototipo per ora.
 - Due percorsi per provare i moltiplicatori di danno e soldi.
 - Game over alla prima pallina persa e record dell’ondata raggiunta.
 
-Il primo obiettivo è provare la fisica del tavolo, la gestione di più palline e l’utilità delle due torri. Grafica essenziale a tema scheda madre; nessun contenuto aggiuntivo prima di verificare questo ciclo.
+Il primo obiettivo è provare la fisica del tavolo, la gestione di più palline e l’utilità delle due torri. Grafica astratta ed essenziale; nessun contenuto aggiuntivo prima di verificare questo ciclo.
 
 ## Valori iniziali del prototipo
 
@@ -174,7 +174,7 @@ La coppia Laser + Repulsore è stata confermata dal proprietario del progetto. I
 
 ### Laser — offensiva
 
-Un componente che spara un impulso luminoso alla pallina più vicina entro portata. Il colpo è istantaneo e non altera la traiettoria: serve a ridurre gli HP in modo leggibile.
+Una torre che spara un impulso luminoso alla pallina più vicina entro portata. Il colpo è istantaneo e non altera la traiettoria: serve a ridurre gli HP in modo leggibile.
 
 - Costo: 50 crediti.
 - Portata: 0,45 W dal centro dello slot; nessun ostacolo alla linea di tiro.
@@ -184,7 +184,7 @@ Un componente che spara un impulso luminoso alla pallina più vicina entro porta
 
 ### Repulsore — supporto
 
-Un componente che dà un impulso verso l’alto alla pallina più bassa entro portata, soltanto se sta scendendo. Aiuta il recupero ma non infligge danno e non garantisce di evitare lo scarico. Lo slot basso offre copertura vicino ai flipper; negli altri slot interviene prima nella discesa.
+Una torre che dà un impulso verso l’alto alla pallina più bassa entro portata, soltanto se sta scendendo. Aiuta il recupero ma non infligge danno e non garantisce di evitare lo scarico. Lo slot basso offre copertura vicino ai flipper; negli altri slot interviene prima nella discesa.
 
 - Costo: 50 crediti.
 - Portata: 0,30 W dal centro dello slot.
