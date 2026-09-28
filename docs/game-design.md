@@ -12,9 +12,9 @@ Il tavolo usa superfici semplici e forme geometriche, con colori ed effetti che 
 
 Il gioco sarà in 3D, con visuale fissa frontale rialzata e inclinata, simile a 3D Pinball Space Cadet: flipper in primo piano e parte alta del tavolo in profondità.
 
-![Concept del layout 3D](images/layout-3d-abstract-v2.png)
+![Layout 3D rivisto](images/layout-3d-v3.png)
 
-Concept visivo iniziale, non una schermata del prototipo implementato. Generato con il tool integrato imagegen. Prompt: tavolo 3D astratto con superficie neutra e forme geometriche semplici, visuale come Space Cadet, layout asimmetrico con tre bumper, tre slot esterni alle traiettorie, Laser in alto a sinistra, Repulsore in basso a sinistra, slot libero a destra, due canalette bonus, due flipper e unico scarico centrale. La geometria e il livello di dettaglio saranno adattati nel prototipo.
+Concept visivo aggiornato, non una schermata del prototipo implementato. L’ingresso è sul bordo superiore; le tre bumper sono raccolte in alto a sinistra; la canaletta oro passa sotto lo slot Laser; la canaletta ciano forma un percorso continuo con uscita verso il centro. Il concept 2D corrispondente è disponibile in [layout-2d-concept-v1.png](images/layout-2d-concept-v1.png). Entrambe le immagini sono generate con il tool integrato imagegen; la geometria effettiva sarà verificata nel prototipo.
 
 ## Regole confermate
 
@@ -77,19 +77,17 @@ La coppia confermata per il prototipo è Laser + Repulsore, descritta sotto. I v
 
 Questa sezione è una proposta da validare, non un layout già approvato.
 
-Tavolo verticale e asimmetrico: la parte bassa concentra il controllo con i flipper, il centro ospita i bumper e la parte alta contiene ingressi e percorsi bonus. Le pareti laterali guidano le palline verso i flipper senza scarichi aggiuntivi.
+Tavolo verticale e asimmetrico: la parte bassa concentra il controllo con i flipper, il centro resta aperto e la parte alta contiene l’ingresso, i bumper raccolti a sinistra e i percorsi bonus. Le pareti laterali guidano le palline verso i flipper senza scarichi aggiuntivi.
 
 ```text
 ┌─────────────────────────────────────┐
-│ CANALETTA A                 INGRESSO │
-│ accesso più ampio              ↓     │
-│       ╲                  ╭──────╮    │
-│        ╲                 │  B   │    │
-│ [T1]    ● bumper         │stretta    │
-│                          ╰──╮──╯    │
-│            ● bumper         │ [T2]  │
-│                             ↓       │
-│ [T3]              ● bumper          │
+│             INGRESSO ↓               │
+│  ╭────── CANALETTA A ──╮  ╭──────╮  │
+│ [T1]╰─sotto Laser───────╯  │  B   │  │
+│        ● ● bumper          │stretta  │
+│         ●                  ╰──╮──╯  │
+│                            ↙ [T2]   │
+│ [T3]                                │
 │                                     │
 │     ╲                         ╱     │
 │      ╲   FLIPPER   FLIPPER   ╱       │
@@ -98,12 +96,12 @@ Tavolo verticale e asimmetrico: la parte bassa concentra il controllo con i flip
 └─────────────────────────────────────┘
 ```
 
-Schema concettuale, non in scala. Per il prototipo si scelgono tre slot in nicchie esterne all’area percorribile: T1 in alto a sinistra, T2 a metà del lato destro e T3 in basso a sinistra. Ogni slot accetta entrambi i tipi di torre. A è il percorso più accessibile e attiva il bonus soldi; B è più stretto e attiva il bonus danni. Le posizioni precise restano da provare con la fisica.
+Schema concettuale, non in scala. Per il prototipo si scelgono tre slot in nicchie esterne all’area percorribile: T1 in alto a sinistra, T2 a metà del lato destro e T3 in basso a sinistra. Ogni slot accetta entrambi i tipi di torre. A è il percorso più accessibile: parte in alto a sinistra, curva sotto T1/Laser e attiva il bonus soldi. B è una U continua in alto a destra, più stretta, che rientra verso il centro e attiva il bonus danni. I tre bumper sono raggruppati nel quadrante alto sinistro, sotto A; il centro e la metà inferiore restano liberi. Le posizioni precise restano da provare con la fisica.
 
 ### Obiettivi del layout
 
 - Rendere leggibile il percorso verso l’unico scarico.
-- Offrire traiettorie differenti sui due lati del tavolo.
+- Offrire traiettorie differenti sui due lati del tavolo: oro sotto il Laser a sinistra, ciano a U con ritorno verso il centro a destra.
 - Consentire tiri intenzionali verso bumper e canalette.
 - Rendere alcune canalette più impegnative da imboccare.
 - Mostrare chiaramente l’effetto delle torri senza ostacolare la visibilità delle palline.
@@ -159,7 +157,7 @@ Sono scelte di partenza delegate per il prototipo, modificabili dopo le prime pr
 | Restituzione bumper | 1,1, con limite di velocità |
 | Velocità massima pallina | 2 W/s |
 | Flipper | Rotazione di circa 50° in 0,08 s; ritorno in 0,12 s |
-| Ingresso | In alto a destra, velocità iniziale 0,6 W/s diretta verso il centro |
+| Ingresso | Dal bordo superiore, circa al centro, velocità iniziale 0,6 W/s diretta verso il centro |
 | Palline nell’ondata n | 3 + (n − 1) |
 | HP per pallina nell’ondata n | 20 + 5 × (n − 1) |
 | Intervallo tra ingressi | 0,8 s, costante |
@@ -211,3 +209,7 @@ Con 100 crediti iniziali si possono costruire entrambe le torri, oppure due dell
 2. Provare geometria, ingresso e risposta dei flipper nel prototipo, poi correggere i valori iniziali.
 
 Le scelte numeriche e il layout sopra sono sufficienti come punto di partenza; non richiedono una discussione separata prima di ogni regolazione. La coppia di torri è confermata.
+
+## Layout references
+
+For 2D flow studies of other pinball boards, see the [Space Cadet and Pokémon Pinball schematics](reference-layouts/README.md). They list each board's key elements and principal ball routes.
